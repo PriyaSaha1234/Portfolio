@@ -1,0 +1,637 @@
+/* ================= ROOT VARIABLES ================= */
+:root {
+    --accent: #ff751f;
+    --black: #0a0a0a;
+    --white: #ffffff;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 60px;
+}
+
+/* ================= FONTS ================= */
+
+@font-face {
+    font-family: "Loubag";
+    src: url("../fonts/Loubag.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "TTInterphasesMono";
+    src: url("../fonts/TT-Interphases-Mono.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* ================= GLOBAL RESET ================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ================= BODY ================= */
+
+body {
+    background: #0d0d0d;
+    color: white;
+    overflow-x: hidden;
+    font-family: "TTInterphasesMono", monospace;
+}
+
+/* ================= HEADINGS FONT SYSTEM ================= */
+
+h1, h2, h3,
+.hero h1,
+.about-heading h2,
+.stack-left h2,
+.section-title,
+.project-heading h2 {
+    font-family: "Loubag", sans-serif;
+    letter-spacing: 1px;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 60px;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+
+    background: rgba(0,0,0,0.8);
+    backdrop-filter: blur(10px);
+}
+
+.navbar h3 {
+    font-size: 18px;
+    letter-spacing: 3px;
+    color: white;   /* ✅ no orange */
+    font-family: "Loubag", sans-serif;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    opacity: 0.7;
+    transition: 0.3s;
+    font-family: "TTInterphasesMono", monospace;
+}
+
+.navbar a:hover {
+    opacity: 1;
+    color: var(--accent);
+}
+/* ================= HERO ================= */
+.hero {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+}
+.hero h1 {
+    font-size: 120px;   /* BIGGER */
+    line-height: 1;
+    font-family: "Loubag", sans-serif;
+    color: #ff751f;     /* YOUR ORANGE */
+    letter-spacing: 2px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.hero p {
+    font-size: 18px;
+    max-width: 600px;
+    margin: 0 auto;
+    opacity: 0.8;
+    line-height: 1.6;
+    text-align: center;
+}
+/* ================= ABOUT ================= */
+.about {
+    display: flex;
+    justify-content: space-between;
+    padding: 120px 60px;
+    gap: 60px;
+    position: relative;
+
+    background: white;   /* 🔥 white section */
+    color: black;        /* 🔥 text becomes dark */
+}
+.about-left {
+    flex: 1;
+}
+.about-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 80px;
+}
+.about-heading {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.about-left p {
+    line-height: 1.7;
+    opacity: 0.8;
+}
+
+.about-right {
+    flex: 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-right img {
+    width: 400px;
+    border-radius: 20px;
+    z-index: 2;
+}
+.orange-blob {
+    position: absolute;
+
+    left: 0;              /* 🔥 anchor from LEFT instead of right */
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 800px;         /* grows toward RIGHT (positive X) */
+    height: 140px;
+
+    background: #ff751f;
+    z-index: 1;
+
+    border-top-right-radius: 70px;
+    border-bottom-right-radius: 70px;
+}
+.orange-blob {
+    border-top-left-radius: 70px;
+    border-bottom-left-radius: 70px;
+}
+
+/* ================= STACK ================= */
+
+.stack-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0px;
+}
+
+/* ================= LEFT ================= */
+
+.stack-left {
+    flex: 1;
+}
+
+.stack-left h2 {
+    font-family: "Loubag", sans-serif;
+    font-size: 4rem;
+    line-height: 0.9;
+    color: #111;
+    margin-bottom: 20px;
+}
+.stack-left p {
+    font-size: 1.5rem;
+    line-height: 1.8;
+    color: rgba(0, 0, 0, 0.7);
+    max-width: 320px;
+}
+
+/* ================= RIGHT ================= */
+
+.stack-right {
+    flex: 1.5;
+
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 20px;
+
+    width: 100%;
+    max-width: 900px;
+}
+.stack-column {
+    min-width: 0;
+}
+.stack-right {
+    height: 500px;
+    overflow: hidden;
+    position: relative;
+}
+
+.stack-track {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    will-change: transform;
+    transform: translateY(0);
+}
+
+/* ================= CARD ================= */
+.stack-card {
+    min-height: 160px;
+    padding: 22px;
+    border-radius: 24px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.stack-card h3 {
+    font-size: 1.8rem;
+    word-break: break-word;
+}
+.stack-card:hover {
+    transform: translateY(-8px);
+}
+
+.stack-card.white {
+    background: #e9e9e9;
+    color: #111;
+}
+
+.stack-card.black {
+    background: #000;
+    color: #fff;
+}
+
+.stack-card p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1100px) {
+
+    .stack-flex {
+        flex-direction: column;
+    }
+
+    .stack-left {
+        text-align: center;
+    }
+
+    .stack-left p {
+        margin: auto;
+    }
+
+    .stack-right {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .react,
+    .python,
+    .aws,
+    .laravel,
+    .mysql,
+    .figma {
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .stack-left h2 {
+        font-size: 2rem;
+    }
+
+    .stack-right {
+        grid-template-columns: 1fr;
+    }
+
+    .stack-card {
+        min-height: 160px;
+    }
+
+    .stack-card h3 {
+        font-size: 2.4rem;
+    }
+}
+/* ================= PROJECTS ================= */
+
+.projects {
+    padding: 120px 60px;
+}
+
+.project-heading h2 {
+    font-size: 40px;
+    color: var(--accent);
+}
+
+.project-heading span {
+    opacity: 0.6;
+}
+
+.project-row {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    margin-top: 80px;
+}
+
+.project-row.reverse {
+    flex-direction: row-reverse;
+}
+
+.project-image img {
+    width: 500px;
+    border-radius: 20px;
+}
+
+.project-content h3 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.project-content p {
+    opacity: 0.7;
+    max-width: 400px;
+    line-height: 1.6;
+}
+
+/* ================= STACK GRID ================= */
+.stack {
+    background: #ff751f;
+    padding: 60px 0;
+}
+
+.stack-section {
+    padding: 100px 60px;
+}
+
+.section-title {
+    font-size: 40px;
+    margin-bottom: 40px;
+}
+
+.stack-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+}
+
+.stack-grid .stack-card {
+    background: #1a1a1a;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+}
+.project-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 80px;
+    margin-top: 100px;
+}
+
+.project-image,
+.project-content {
+    flex: 1;
+}
+
+/* ================= JOURNEY ================= */
+/* Position content above */
+.timeline-item.top .content {
+    position: absolute;
+    bottom: 70px; /* adjust spacing */
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+/* Position content below */
+.timeline-item.bottom .content {
+    position: absolute;
+    top: 70px; /* adjust spacing */
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+.journey-section {
+    background: #f3f3f3;
+    color: #111;
+    padding: 90px 0 300px;
+}
+
+.journey-heading {
+    margin-bottom: 230px;
+}
+
+.journey-heading h2 {
+    font-size: 3.2rem;
+    line-height: 1;
+    font-family: inherit;
+    font-weight: 700;
+}
+/* Timeline */
+.timeline {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    position: relative;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 3px;
+    background: #111;
+}
+
+/* Items */
+
+.timeline-item {
+    position: relative;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+/* Orange dots */
+
+.dot {
+    width: 22px;
+    height: 22px;
+    background: #ff751f;
+    border-radius: 50%;
+    position: relative;
+    z-index: 2;
+    top: -10px;
+}
+
+/* Vertical connector */
+
+.timeline-item.top .dot::before,
+.timeline-item.bottom .dot::before {
+    content: "";
+    position: absolute;
+    width: 3px;
+    background: #111;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.timeline-item.top .dot::before {
+    height: 45px;
+    bottom: 100%;
+}
+
+.timeline-item.bottom .dot::before {
+    height: 45px;
+    top: 100%;
+}
+
+/* Content */
+.content {
+    width: 220px;
+}
+
+.content h4 {
+    font-size: 1.1rem;
+    line-height: 1.4;
+    margin-bottom: 12px;
+}
+
+.content p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+/* ================= CONTACT ================= */
+
+.contact-section {
+    padding: 120px 60px;
+    background: #0d0d0d;
+    color: white;
+}
+
+/* BIG TITLE */
+.connect-title{
+    font-size: 70px;
+    font-family: "Loubag", sans-serif;
+    margin-bottom: 50px;
+    color: var(--accent);
+    line-height: 1;
+}
+
+/* ICON ROW (ONE LINE FLEX) */
+.icon-row {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+/* ICON BOX */
+.icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 16px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #1a1a1a;
+    border: 1px solid rgba(255,255,255,0.1);
+
+    transition: all 0.3s ease;
+    text-decoration: none;
+
+    position: relative;
+    overflow: hidden;
+}
+
+/* ICON IMAGE */
+.icon img {
+    width: 30px;
+    height: 30px;
+    filter: grayscale(100%) brightness(1.5);
+    transition: 0.3s ease;
+}
+
+/* HOVER EFFECT */
+.icon:hover {
+    transform: translateY(-6px);
+    background: var(--accent);
+    border-color: var(--accent);
+}
+
+.icon:hover img {
+    filter: brightness(0);
+}
+
+/* OPTIONAL: subtle glow effect */
+.icon::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(255,117,31,0.25), transparent 70%);
+    opacity: 0;
+    transition: 0.3s ease;
+}
+
+.icon:hover::after {
+    opacity: 1;
+}
+.timeline-item.top .content {
+    bottom: 100px;
+}
+
+.timeline-item.bottom .content {
+    top: 100px;
+    bottom: 340px;
+}
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .about,
+    .stack,
+    .project-row {
+        flex-direction: column;
+    }
+
+    .stack-right {
+        grid-template-columns: 1fr;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-image img {
+        width: 100%;
+    }
+}
